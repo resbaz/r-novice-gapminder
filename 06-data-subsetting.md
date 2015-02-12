@@ -417,14 +417,14 @@ to its columns:
 
 ~~~ {.r}
 set.seed(1)
-m <- matrix(rnorm(6*4), ncol=4, nrow=6)
+m <- matrix(110:133, ncol=4, nrow=6)
 m[3:4, c(3,1)]
 ~~~
 
 ~~~ {.output}
-            [,1]       [,2]
-[1,]  1.12493092 -0.8356286
-[2,] -0.04493361  1.5952808
+     [,1] [,2]
+[1,]  124  112
+[2,]  125  113
 ~~~
 
 You can leave the first or second arguments blank to retrieve all the
@@ -435,13 +435,13 @@ m[, c(3,4)]
 ~~~
 
 ~~~ {.output}
-            [,1]        [,2]
-[1,] -0.62124058  0.82122120
-[2,] -2.21469989  0.59390132
-[3,]  1.12493092  0.91897737
-[4,] -0.04493361  0.78213630
-[5,] -0.01619026  0.07456498
-[6,]  0.94383621 -1.98935170
+     [,1] [,2]
+[1,]  122  128
+[2,]  123  129
+[3,]  124  130
+[4,]  125  131
+[5,]  126  132
+[6,]  127  133
 ~~~
 
 If we only access one row or column, R will automatically convert the result
@@ -452,7 +452,7 @@ m[3,]
 ~~~
 
 ~~~ {.output}
-[1] -0.8356286  0.5757814  1.1249309  0.9189774
+[1] 112 118 124 130
 ~~~
 
 If you want to keep the output as a matrix, you need to specify a *third* argument;
@@ -463,8 +463,8 @@ m[3, , drop=FALSE]
 ~~~
 
 ~~~ {.output}
-           [,1]      [,2]     [,3]      [,4]
-[1,] -0.8356286 0.5757814 1.124931 0.9189774
+     [,1] [,2] [,3] [,4]
+[1,]  112  118  124  130
 ~~~
 
 Unlike vectors, if we try to access a row or column outside of the matrix,
@@ -493,12 +493,12 @@ m[5]
 ~~~
 
 ~~~ {.output}
-[1] 0.3295078 
+[1] 114
 ~~~
 
 This usually isn't useful. However it is useful to note that matrices
-are laid out in *column-major format*. That is the elements of the 
-vector are arranged column-wise:
+are laid out in *column-major format* by default. That is the elements 
+of the vector are arranged column-wise:
 
 ~~~ {.r}
 matrix(1:6, nrow=2, ncol=3)
@@ -509,6 +509,13 @@ matrix(1:6, nrow=2, ncol=3)
 [1,]    1    3    5
 [2,]    2    4    6
 ~~~
+
+> ### Challenge {.challenge}
+> 
+> Can you figure out how to change this default behaviour and
+> make a matrix containing the values `1:6` laid out by rows?
+> Hint: look at the help page for the `matrix` function.
+>
 
 Matrices can also be subsetted using their rownames and column names
 instead of their row and column indices.
