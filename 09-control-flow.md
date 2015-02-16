@@ -9,6 +9,7 @@ minutes: 15
 >
 > * Write conditional statements with `if` and `else`.
 > * Correctly evaluate expressions containing `&` ("and") and `|` ("or").
+> * Perform repetitive operations using `for` or `while` loops
 >
 
 Often when we're coding we want to control the flow of our actions. Control
